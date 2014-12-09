@@ -10,3 +10,4 @@
 *.tlog
 *.cache
 *.unsuccessfulbuild
+*.dll
