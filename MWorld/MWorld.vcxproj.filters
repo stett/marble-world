@@ -1,0 +1,185 @@
+﻿<?xml version="1.0" encoding="utf-8"?>
+<Project ToolsVersion="4.0" xmlns="http://schemas.microsoft.com/developer/msbuild/2003">
+  <ItemGroup>
+    <ClInclude Include="sowv.h" />
+    <ClInclude Include="GLTextures.h">
+      <Filter>GL</Filter>
+    </ClInclude>
+    <ClInclude Include="GLDraw.h">
+      <Filter>GL</Filter>
+    </ClInclude>
+    <ClInclude Include="GLGraphic.h">
+      <Filter>GL</Filter>
+    </ClInclude>
+    <ClInclude Include="GLGraphicAnimation.h">
+      <Filter>GL</Filter>
+    </ClInclude>
+    <ClInclude Include="GLGraphicList.h">
+      <Filter>GL</Filter>
+    </ClInclude>
+    <ClInclude Include="MWMath.h">
+      <Filter>MW</Filter>
+    </ClInclude>
+    <ClInclude Include="MWPath.h">
+      <Filter>MW</Filter>
+    </ClInclude>
+    <ClInclude Include="MWUniversal.h">
+      <Filter>MW</Filter>
+    </ClInclude>
+    <ClInclude Include="MWParts.h">
+      <Filter>MW\Parts</Filter>
+    </ClInclude>
+    <ClInclude Include="MWPart.h">
+      <Filter>MW\Parts</Filter>
+    </ClInclude>
+    <ClInclude Include="MWMarble.h">
+      <Filter>MW\Marbles</Filter>
+    </ClInclude>
+    <ClInclude Include="MWMarbles.h">
+      <Filter>MW\Marbles</Filter>
+    </ClInclude>
+    <ClInclude Include="MWWorlds.h">
+      <Filter>MW\Worlds</Filter>
+    </ClInclude>
+    <ClInclude Include="MWWorld.h">
+      <Filter>MW\Worlds</Filter>
+    </ClInclude>
+    <ClInclude Include="MWProps.h">
+      <Filter>MW\Props</Filter>
+    </ClInclude>
+    <ClInclude Include="MWProp.h">
+      <Filter>MW\Props</Filter>
+    </ClInclude>
+    <ClInclude Include="MWEditor.h">
+      <Filter>MW\Editor</Filter>
+    </ClInclude>
+    <ClInclude Include="MWEditorMenu.h">
+      <Filter>MW\Editor</Filter>
+    </ClInclude>
+    <ClInclude Include="MWRobot.h">
+      <Filter>MW\Robot</Filter>
+    </ClInclude>
+  </ItemGroup>
+  <ItemGroup>
+    <ClCompile Include="main.cpp" />
+    <ClCompile Include="GLDraw.cpp">
+      <Filter>GL</Filter>
+    </ClCompile>
+    <ClCompile Include="GLGraphic.cpp">
+      <Filter>GL</Filter>
+    </ClCompile>
+    <ClCompile Include="GLGraphicAnimation.cpp">
+      <Filter>GL</Filter>
+    </ClCompile>
+    <ClCompile Include="GLGraphicList.cpp">
+      <Filter>GL</Filter>
+    </ClCompile>
+    <ClCompile Include="GLTextures.cpp">
+      <Filter>GL</Filter>
+    </ClCompile>
+    <ClCompile Include="MWMath.cpp">
+      <Filter>MW</Filter>
+    </ClCompile>
+    <ClCompile Include="MWPath.cpp">
+      <Filter>MW</Filter>
+    </ClCompile>
+    <ClCompile Include="MWUniversal.cpp">
+      <Filter>MW</Filter>
+    </ClCompile>
+    <ClCompile Include="MWParts.cpp">
+      <Filter>MW\Parts</Filter>
+    </ClCompile>
+    <ClCompile Include="MWPart.cpp">
+      <Filter>MW\Parts</Filter>
+    </ClCompile>
+    <ClCompile Include="MWMarble.cpp">
+      <Filter>MW\Marbles</Filter>
+    </ClCompile>
+    <ClCompile Include="MWMarbles.cpp">
+      <Filter>MW\Marbles</Filter>
+    </ClCompile>
+    <ClCompile Include="marble_steel.cpp">
+      <Filter>MW\Marbles</Filter>
+    </ClCompile>
+    <ClCompile Include="part_switch_1.cpp">
+      <Filter>MW\Parts</Filter>
+    </ClCompile>
+    <ClCompile Include="part_track_1.cpp">
+      <Filter>MW\Parts</Filter>
+    </ClCompile>
+    <ClCompile Include="part_trigger_1.cpp">
+      <Filter>MW\Parts</Filter>
+    </ClCompile>
+    <ClCompile Include="MWWorlds.cpp">
+      <Filter>MW\Worlds</Filter>
+    </ClCompile>
+    <ClCompile Include="world_planet_1.cpp">
+      <Filter>MW\Worlds</Filter>
+    </ClCompile>
+    <ClCompile Include="MWWorld.cpp">
+      <Filter>MW\Worlds</Filter>
+    </ClCompile>
+    <ClCompile Include="MWProps.cpp">
+      <Filter>MW\Props</Filter>
+    </ClCompile>
+    <ClCompile Include="MWProp.cpp">
+      <Filter>MW\Props</Filter>
+    </ClCompile>
+    <ClCompile Include="prop_support_1_short.cpp">
+      <Filter>MW\Props</Filter>
+    </ClCompile>
+    <ClCompile Include="prop_support_1_long.cpp">
+      <Filter>MW\Props</Filter>
+    </ClCompile>
+    <ClCompile Include="prop_support_1_top.cpp">
+      <Filter>MW\Props</Filter>
+    </ClCompile>
+    <ClCompile Include="part_track_curve45_1.cpp">
+      <Filter>MW\Parts</Filter>
+    </ClCompile>
+    <ClCompile Include="MWEditor.cpp">
+      <Filter>MW\Editor</Filter>
+    </ClCompile>
+    <ClCompile Include="MWEditorMenu.cpp">
+      <Filter>MW\Editor</Filter>
+    </ClCompile>
+    <ClCompile Include="part_track_loop_small_quarter_1.cpp">
+      <Filter>MW\Parts</Filter>
+    </ClCompile>
+    <ClCompile Include="part_track_entrance_end_1.cpp">
+      <Filter>MW\Parts</Filter>
+    </ClCompile>
+    <ClCompile Include="part_track_loop_medium_eighth_1.cpp">
+      <Filter>MW\Parts</Filter>
+    </ClCompile>
+    <ClCompile Include="MWRobot.cpp">
+      <Filter>MW\Robot</Filter>
+    </ClCompile>
+  </ItemGroup>
+  <ItemGroup>
+    <Filter Include="GL">
+      <UniqueIdentifier>{9b0ca0d2-621b-478e-9766-dfc8c4bc895e}</UniqueIdentifier>
+    </Filter>
+    <Filter Include="MW">
+      <UniqueIdentifier>{db5aea90-3cdd-40c0-8b59-daacd9bb730d}</UniqueIdentifier>
+    </Filter>
+    <Filter Include="MW\Parts">
+      <UniqueIdentifier>{74d1d912-4fa8-4fbd-8ab2-31156ee0e185}</UniqueIdentifier>
+    </Filter>
+    <Filter Include="MW\Marbles">
+      <UniqueIdentifier>{45e58a16-395e-4796-ab05-1bd9bd098e49}</UniqueIdentifier>
+    </Filter>
+    <Filter Include="MW\Worlds">
+      <UniqueIdentifier>{e7b2b1a1-0b4c-4b45-b4d3-2fbf8e3f0468}</UniqueIdentifier>
+    </Filter>
+    <Filter Include="MW\Props">
+      <UniqueIdentifier>{88a93a31-00f7-44f4-ba3c-b8ebca9e362b}</UniqueIdentifier>
+    </Filter>
+    <Filter Include="MW\Editor">
+      <UniqueIdentifier>{c81e1607-3995-42a2-a76c-15acf3838598}</UniqueIdentifier>
+    </Filter>
+    <Filter Include="MW\Robot">
+      <UniqueIdentifier>{d91560de-6719-4687-b671-06b6fe62c05c}</UniqueIdentifier>
+    </Filter>
+  </ItemGroup>
+</Project>

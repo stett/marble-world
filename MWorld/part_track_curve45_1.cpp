@@ -1,0 +1,41 @@
+#include "MWPart.h"
+#include "MWParts.h"
+#include "GLTextures.h"
+
+void PART_TRACK_CURVE45_1(MWPart *part) {
+
+    // Graphics
+    {   GLGraphicAnimation anim;
+        anim.set_texture(TEX_TRACK_CURVE45_1_BACK);
+        part->graphics_back.push_back(anim);
+
+        anim.set_texture(TEX_TRACK_CURVE45_1);
+        part->graphics_fore.push_back(anim);
+    }
+
+    // Paths
+    {   MWPartPathSet path_set;
+        {   MWPath path;
+            path.add_vertex(-153, -25);
+            path.add_vertex(-100, -25);
+            path.add_vertex(-20, -18);
+            path.add_vertex(0, -10);
+            path.add_vertex(20, 0);
+            path.add_vertex(70, 40);
+            path.add_vertex(118, 85);
+            path_set.paths_local.push_back(path);
+        }
+        part->path_sets.push_back(path_set);
+    }
+    part->path_set_index = 0;
+    
+    // Connectors
+    {   MWPropConnectionVertexSet vertex_set;
+        vertex_set.vertex_local.x = 0;
+        vertex_set.vertex_local.y = 0;
+        part->connection_vertices.push_back(vertex_set);
+    }
+
+    // Update the part's radius based on connection and path vertices
+    part->update_radius();
+}
