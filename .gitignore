@@ -1,4 +1,5 @@
 *.sdf
+*.opensdf
 *.suo
 *.user
 *.obj
@@ -10,4 +11,3 @@
 *.tlog
 *.cache
 *.unsuccessfulbuild
-*.dll

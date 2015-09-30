@@ -15,9 +15,13 @@
 #include "MWPath.h"
 #include "MWMath.h"
 #include "GLDraw.h"
+
+#include <algorithm>
+
 /// TEMP
 #include <iostream>
 ///
+
 using namespace std;
 
 /// 'Tors

@@ -99,6 +99,8 @@ struct MWEditorPropTemplate {
 class MWEditor {
 
     /// Members
+private:
+    SDL_Window *handle;
 public:
     MWWorld world;
     MWEditorMouse mouse;
@@ -152,8 +154,8 @@ public:
     float angle_to_center(float x, float y);
     // SDL event handling
     void handle_events();
-    void handle_key_down(SDL_keysym *keysym);
-    void handle_key_up(SDL_keysym *keysym);
+    void handle_key_down(SDL_Keysym *keysym);
+    void handle_key_up(SDL_Keysym *keysym);
     void handle_mouse_down(SDL_MouseButtonEvent *button);
     void handle_mouse_up(SDL_MouseButtonEvent *button);
     void handle_mouse_motion(SDL_MouseMotionEvent *motion);

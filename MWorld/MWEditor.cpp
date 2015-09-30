@@ -57,8 +57,8 @@ void MWEditor::initialize() {
 }
 void MWEditor::initialize_sdl() {
     if(SDL_Init(SDL_INIT_VIDEO) < 0) quit();            // Try to initialize sdl subsystems
-    const SDL_VideoInfo* info = SDL_GetVideoInfo();     // Get the machine's video information
-    Uint8 bpp = info->vfmt->BitsPerPixel;
+    //const SDL_VideoInfo* info = SDL_GetVideoInfo();     // Get the machine's video information
+    //Uint8 bpp = info->vfmt->BitsPerPixel;
 
     SDL_GL_SetAttribute(SDL_GL_RED_SIZE, 5);
     SDL_GL_SetAttribute(SDL_GL_GREEN_SIZE, 5);
@@ -66,7 +66,17 @@ void MWEditor::initialize_sdl() {
     SDL_GL_SetAttribute(SDL_GL_DEPTH_SIZE, 16);
     SDL_GL_SetAttribute(SDL_GL_DOUBLEBUFFER, 1);
 
-    if(SDL_SetVideoMode(SCREEN_W, SCREEN_H, bpp, SDL_OPENGL) == 0) quit();
+    //if(SDL_SetVideoMode(SCREEN_W, SCREEN_H, bpp, SDL_OPENGL) == 0) quit();
+
+    handle = SDL_CreateWindow(
+        "MWorld ",
+        SDL_WINDOWPOS_UNDEFINED,
+        SDL_WINDOWPOS_UNDEFINED,
+        SCREEN_W, SCREEN_H,
+        SDL_WINDOW_OPENGL |
+        SDL_WINDOW_SHOWN);
+    if (!handle)
+        quit();
 }
 void MWEditor::initialize_opengl() {
     glClearColor(.5f, .5f, .5f, 1.f);
@@ -149,7 +159,7 @@ void MWEditor::run() {
         draw_menu();
 
         // Blit everything to the screen
-        SDL_GL_SwapBuffers();
+        SDL_GL_SwapWindow(handle);
 
         t0 = SDL_GetTicks();            //   Moderate the loop timing
         dt = t1 - t0;
@@ -519,7 +529,7 @@ void MWEditor::handle_events() {
         update_menu();
     }
 }
-void MWEditor::handle_key_down(SDL_keysym *keysym) {
+void MWEditor::handle_key_down(SDL_Keysym *keysym) {
 
     float dx = 256.f;
     float da = 45.f * .5f;
@@ -640,7 +650,7 @@ void MWEditor::handle_key_down(SDL_keysym *keysym) {
         break;
     }
 }
-void MWEditor::handle_key_up(SDL_keysym *keysym) {
+void MWEditor::handle_key_up(SDL_Keysym *keysym) {
     switch(keysym->sym) {
     case SDLK_LSHIFT:
         keys.key_lshift = false;
@@ -714,7 +724,7 @@ void MWEditor::handle_mouse_down(SDL_MouseButtonEvent *button) {
         }
 
         break;
-    case SDL_BUTTON_WHEELUP:
+    /*case SDL_BUTTON_WHEELUP:
         if (keys.key_lshift || keys.key_rshift) {
             switch (creation_type) {
             case Part:
@@ -779,7 +789,7 @@ void MWEditor::handle_mouse_down(SDL_MouseButtonEvent *button) {
             world.view.angle += da;
         else
             world.view.scale /= ds;
-        break;
+        break;*/
     }
 }
 void MWEditor::handle_mouse_up(SDL_MouseButtonEvent *button) {

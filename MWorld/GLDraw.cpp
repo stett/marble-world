@@ -1,4 +1,5 @@
 #include <math.h>
+#include <algorithm>
 
 #ifdef __APPLE__
 #include <OpenGL/OpenGL.h>
@@ -9,6 +10,8 @@
 
 #include "GLDraw.h"
 #include "GLTextures.h"
+
+using namespace std;
 
 void GLDraw_line(float x0, float y0, float x1, float y1, float width, float R, float G, float B, float A) {
     static float angle;

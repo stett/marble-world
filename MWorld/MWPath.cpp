@@ -1,6 +1,7 @@
 #include "MWPath.h"
 #include "MWMath.h"
 
+#include <algorithm>
 #include <vector>
 #include <stdarg.h>
 

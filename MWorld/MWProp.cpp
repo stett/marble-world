@@ -1,3 +1,4 @@
+#include <algorithm>
 #include "MWUniversal.h"
 #include "MWProp.h"
 #include "GLDraw.h"
@@ -8,6 +9,9 @@
 #else
 #include <GL/glut.h>
 #endif
+
+using namespace std;
+
 
 void MWPropConnectionVertexSet::globalize() {
     static GLint viewport[4];
