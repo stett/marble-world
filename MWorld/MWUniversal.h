@@ -10,8 +10,8 @@ using namespace std;
 #define WORLD_CENTER_Y (WORLD_H * .5f)
 
 #define DT 20
-#define SCREEN_W 20*64
-#define SCREEN_H 12*64
+#define SCREEN_W 18*64
+#define SCREEN_H 10*64
 
 #define CONNECTION_RADIUS 20.f
 

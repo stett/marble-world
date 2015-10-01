@@ -68,6 +68,7 @@ void MWEditor::initialize_sdl() {
 
     //if(SDL_SetVideoMode(SCREEN_W, SCREEN_H, bpp, SDL_OPENGL) == 0) quit();
 
+    // Create the window and get a handle to it
     handle = SDL_CreateWindow(
         "MWorld ",
         SDL_WINDOWPOS_UNDEFINED,
@@ -75,8 +76,10 @@ void MWEditor::initialize_sdl() {
         SCREEN_W, SCREEN_H,
         SDL_WINDOW_OPENGL |
         SDL_WINDOW_SHOWN);
-    if (!handle)
-        quit();
+    if (!handle) quit();
+
+    // Create the render context
+    context = SDL_GL_CreateContext(handle);
 }
 void MWEditor::initialize_opengl() {
     glClearColor(.5f, .5f, .5f, 1.f);

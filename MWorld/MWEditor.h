@@ -101,6 +101,7 @@ class MWEditor {
     /// Members
 private:
     SDL_Window *handle;
+    SDL_GLContext context;
 public:
     MWWorld world;
     MWEditorMouse mouse;
