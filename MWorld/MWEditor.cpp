@@ -522,6 +522,10 @@ void MWEditor::handle_events() {
             break;
         case SDL_MOUSEBUTTONUP:
             handle_mouse_up(&event.button);
+            break;
+        case SDL_MOUSEWHEEL:
+            handle_mouse_wheel(&event.wheel);
+            break;
         case SDL_MOUSEMOTION:
             handle_mouse_motion(&event.motion);
             break;
@@ -678,8 +682,6 @@ void MWEditor::handle_key_up(SDL_Keysym *keysym) {
     }
 }
 void MWEditor::handle_mouse_down(SDL_MouseButtonEvent *button) {
-    float da = 15.f;
-    float ds = 1.3f;
     int id, part_id, marble_id, prop_id;
     MWWorldObjectType object_types[] = {Part, Prop, Marble};
     int object_types_count = 3;
@@ -727,72 +729,6 @@ void MWEditor::handle_mouse_down(SDL_MouseButtonEvent *button) {
         }
 
         break;
-    /*case SDL_BUTTON_WHEELUP:
-        if (keys.key_lshift || keys.key_rshift) {
-            switch (creation_type) {
-            case Part:
-                part_template_index ++;
-                if (part_template_index >= (int)part_templates.size()) part_template_index = 0;
-                break;
-            case Prop:
-                prop_template_index ++;
-                if (prop_template_index >= (int)prop_templates.size()) prop_template_index = 0;
-                break;
-            case Marble:
-                marble_template_index ++;
-                if (marble_template_index >= (int)marble_templates.size()) marble_template_index = 0;
-                break;
-            }
-            break;
-        }
-        if (selection.selected && selection.type == Part) {
-            selected_part()->angle -= da * .5f;
-            world.update_part_globalization(selection.index);
-            break;
-        }
-        if (selection.selected && selection.type == Prop) {
-            selected_prop()->angle -= da * .5f;
-            world.update_prop_globalization(selection.index);
-            break;
-        }
-        if (mouse.button_right)
-            world.view.angle -= da;
-        else
-            world.view.scale *= ds;
-        break;
-    case SDL_BUTTON_WHEELDOWN:
-        if (keys.key_lshift || keys.key_rshift) {
-            switch (creation_type) {
-            case Part:
-                part_template_index --;
-                if (part_template_index < 0) part_template_index = (int)part_templates.size() - 1;
-                break;
-            case Prop:
-                prop_template_index --;
-                if (prop_template_index < 0) prop_template_index = (int)prop_templates.size() - 1;
-                break;
-            case Marble:
-                marble_template_index --;
-                if (marble_template_index < 0) marble_template_index = (int)marble_templates.size() - 1;
-                break;
-            }
-            break;
-        }
-        if (selection.selected && selection.type == Part) {
-            selected_part()->angle += da *.5f;
-            world.update_part_globalization(selection.index);
-            break;
-        }
-        if (selection.selected && selection.type == Prop) {
-            selected_prop()->angle += da *.5f;
-            world.update_prop_globalization(selection.index);
-            break;
-        }
-        if (mouse.button_right)
-            world.view.angle += da;
-        else
-            world.view.scale /= ds;
-        break;*/
     }
 }
 void MWEditor::handle_mouse_up(SDL_MouseButtonEvent *button) {
@@ -1059,6 +995,65 @@ void MWEditor::handle_mouse_motion(SDL_MouseMotionEvent *motion) {
         }
     }
 }
+
+void MWEditor::handle_mouse_wheel(SDL_MouseWheelEvent *wheel) {
+    float ds = 1.3f;
+    float da = 15.f;
+    if (wheel->y > 0) {
+        if (keys.key_lshift || keys.key_rshift) {
+            switch (creation_type) {
+            case Part:
+                part_template_index++;
+                if (part_template_index >= (int)part_templates.size()) part_template_index = 0;
+                break;
+            case Prop:
+                prop_template_index++;
+                if (prop_template_index >= (int)prop_templates.size()) prop_template_index = 0;
+                break;
+            case Marble:
+                marble_template_index++;
+                if (marble_template_index >= (int)marble_templates.size()) marble_template_index = 0;
+                break;
+            }
+        } else if (selection.selected && selection.type == Part) {
+            selected_part()->angle -= da * .5f;
+            world.update_part_globalization(selection.index);
+        } else if (selection.selected && selection.type == Prop) {
+            selected_prop()->angle -= da * .5f;
+            world.update_prop_globalization(selection.index);
+        } else if (mouse.button_right)
+            world.view.angle -= da;
+        else
+            world.view.scale *= ds;
+    } else if (wheel->y < 0) {
+        if (keys.key_lshift || keys.key_rshift) {
+            switch (creation_type) {
+            case Part:
+                part_template_index --;
+                if (part_template_index < 0) part_template_index = (int)part_templates.size() - 1;
+                break;
+            case Prop:
+                prop_template_index --;
+                if (prop_template_index < 0) prop_template_index = (int)prop_templates.size() - 1;
+                break;
+            case Marble:
+                marble_template_index --;
+                if (marble_template_index < 0) marble_template_index = (int)marble_templates.size() - 1;
+                break;
+            }
+        } else if (selection.selected && selection.type == Part) {
+            selected_part()->angle += da *.5f;
+            world.update_part_globalization(selection.index);
+        } else if (selection.selected && selection.type == Prop) {
+            selected_prop()->angle += da *.5f;
+            world.update_prop_globalization(selection.index);
+        } else if (mouse.button_right)
+            world.view.angle += da;
+        else
+            world.view.scale /= ds;
+    }
+}
+
 void MWEditor::globalize_mouse() {
 
     // Get the mouse world coordinates

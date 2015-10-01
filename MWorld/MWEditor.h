@@ -160,6 +160,7 @@ public:
     void handle_mouse_down(SDL_MouseButtonEvent *button);
     void handle_mouse_up(SDL_MouseButtonEvent *button);
     void handle_mouse_motion(SDL_MouseMotionEvent *motion);
+    void handle_mouse_wheel(SDL_MouseWheelEvent *wheel);
     void globalize_mouse();
 };
 
